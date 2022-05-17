@@ -77,8 +77,7 @@ router.post(
 
         // normalize social fields to ensure valid url
         for (const [key, value] of Object.entries(socialFields)) {
-            if (value && value.length > 0)
-                socialFields[key] = value;
+            if (value && value.length > 0) socialFields[key] = value;
         }
         // add to profileFields
         profileFields.social = socialFields;
@@ -97,5 +96,21 @@ router.post(
         }
     }
 );
+
+// @route    GET api/profile
+// @desc     Get all profiles
+// @access   Public
+router.get("/", async (req, res) => {
+    try {
+        const profiles = await Profile.find().populate("user", [
+            "name",
+            "avatar",
+        ]);
+        res.json(profiles);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+});
 
 module.exports = router;
