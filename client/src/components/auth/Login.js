@@ -31,6 +31,7 @@ export const Login = () => {
                         name="email"
                         required
                         maxLength="100"
+                        autoComplete="email"
                         value={email}
                         onChange={e => onChange(e)}
                     />
@@ -42,6 +43,7 @@ export const Login = () => {
                         name="password"
                         required
                         maxLength="50"
+                        autoComplete="current-password"
                         value={password}
                         onChange={e => onChange(e)}
                     />
