@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+//import axios from "axios";
 import { Link } from "react-router-dom";
-import axios from "axios";
+//import { connect } from "react-redux";
+//import PropTypes from "prop-types";
 
-export const Register = () => {
+import { useDispatch } from "react-redux";
+import { setAlert } from "../../actions/alert";
+
+const Register = () => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -15,10 +20,22 @@ export const Register = () => {
     const onChange = e =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
 
+    const dispatch = useDispatch();
+
     const onSubmit = async e => {
         e.preventDefault();
+        if (formData.password !== formData.password2) {
+            dispatch(setAlert("Passwords do not match!", "danger"));
+            console.log("Alert should be on screen", alert.type)
+        } else {
+            console.log("send request here to db");
+        }
+    };
+
+    /* const onSubmit = async e => {
+        e.preventDefault();
         if (password !== password2) {
-            console.log("Passwords do not match");
+            setAlert("Passwords do not match", "danger");
         } else {
             const newUser = {
                 name,
@@ -43,7 +60,7 @@ export const Register = () => {
                 console.log(err);
             }
         }
-    };
+    }; */
 
     return (
         <section className="container">
@@ -117,3 +134,11 @@ export const Register = () => {
         </section>
     );
 };
+
+/* Register.propTypes = {
+    setAlert: PropTypes.func.isRequired,
+};
+ */
+/* export default connect(null, { setAlert })(Register); */
+
+export default Register
