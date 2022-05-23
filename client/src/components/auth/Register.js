@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const Register = () => {
         if (formData.password !== formData.password2) {
             dispatch(setAlert("Passwords do not match!", "danger"));
         } else {
-            console.log("send request here to db");
+            dispatch(register({ name, email, password }));
         }
     };
 
@@ -62,7 +63,7 @@ const Register = () => {
     }; */
 
     return (
-        <section className="container">
+        <>
             <h1 className="large text-primary">Sign Up</h1>
             <p className="lead">
                 <i className="fas fa-user"></i> Create Your Account
@@ -75,7 +76,7 @@ const Register = () => {
                         name="name"
                         minLength="2"
                         maxLength="100"
-                        required
+                        required 
                         autoComplete="username"
                         value={name}
                         onChange={e => onChange(e)}
@@ -87,7 +88,7 @@ const Register = () => {
                         placeholder="Email Address"
                         name="email"
                         maxLength="100"
-                        required
+                        required 
                         autoComplete="email"
                         value={email}
                         onChange={e => onChange(e)}
@@ -130,7 +131,7 @@ const Register = () => {
             <p className="my-1">
                 Already have an account? <Link to="/login">Sign In</Link>
             </p>
-        </section>
+        </>
     );
 };
 

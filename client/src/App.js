@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/layout/Navbar";
 import { Landing } from "./components/layout/Landing";
 import { Login } from "./components/auth/Login";
-import  Register from "./components/auth/Register";
+import Register from "./components/auth/Register";
 import Alert from "./components/layout/Alert";
 
 //Redux
@@ -15,12 +15,14 @@ function App() {
         <Provider store={store}>
             <BrowserRouter>
                 <Navbar />
-                <Alert />
-                <Routes>
-                    <Route path="/" element={<Landing />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                </Routes>
+                <section className="container">
+                    <Alert />
+                    <Routes>
+                        <Route path="/" element={<Landing />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                    </Routes>
+                </section>
 
                 {/*  <Route path="/about" element={<About />} />
                     <Route path="/category/:name" element={<Category />}/>

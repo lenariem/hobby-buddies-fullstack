@@ -165,7 +165,7 @@ img {
 .alert {
   max-width: 1036px;
   padding: 0.8rem;
-  margin: 7rem auto 0;
+  margin: 1rem auto;
   opacity: 0.9;
   background: var(--light-color);
   color: #333;

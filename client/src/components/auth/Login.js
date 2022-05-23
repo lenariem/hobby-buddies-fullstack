@@ -17,7 +17,7 @@ export const Login = () => {
         console.log("SUCCESS");
     };
     return (
-        <section className="container">
+        <>
             <div className="alert alert-danger">Invalid credentials</div>
             <h1 className="large text-primary">Sign In</h1>
             <p className="lead">
@@ -57,6 +57,6 @@ export const Login = () => {
             <p className="my-1">
                 Don't have an account? <Link to="/register">Sign Up</Link>
             </p>
-        </section>
+      </>
     );
 };
