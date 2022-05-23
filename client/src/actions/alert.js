@@ -3,7 +3,7 @@ import { SET_ALERT, REMOVE_ALERT } from "./types";
 
 //two arrows possible because of thunk
 export const setAlert =
-    (msg, alertType, timeout = 50000) =>
+    (msg, alertType, timeout = 5000) =>
     dispatch => {
         const id = uuidv4();
         dispatch({

@@ -26,7 +26,6 @@ const Register = () => {
         e.preventDefault();
         if (formData.password !== formData.password2) {
             dispatch(setAlert("Passwords do not match!", "danger"));
-            console.log("Alert should be on screen", alert.type)
         } else {
             console.log("send request here to db");
         }
@@ -141,4 +140,4 @@ const Register = () => {
  */
 /* export default connect(null, { setAlert })(Register); */
 
-export default Register
+export default Register;
