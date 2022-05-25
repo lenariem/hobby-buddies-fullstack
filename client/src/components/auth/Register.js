@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 //import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 //import { connect } from "react-redux";
 //import PropTypes from "prop-types";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 
@@ -31,6 +31,12 @@ const Register = () => {
             dispatch(register({ name, email, password }));
         }
     };
+
+    //Redirect if logged in
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+    if (isAuthenticated) {
+        return <Navigate to="/dashboard" />
+    }
 
     /* const onSubmit = async e => {
         e.preventDefault();
