@@ -5,6 +5,7 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+    LOGOUT,
 } from "../actions/types";
 
 const initialState = {
@@ -44,7 +45,15 @@ function authReducer(state = initialState, action) {
                 isAuthenticated: false,
                 loading: false,
             };
-
+        case LOGOUT:
+            localStorage.removeItem("token");
+            return {
+                ...state,
+                token: null,
+                isAuthenticated: false,
+                loading: false,
+                user: null,
+            };
         default:
             return state;
     }
