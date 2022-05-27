@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 
-const Register = () => {
+export const Register = () => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -147,4 +147,3 @@ const Register = () => {
  */
 /* export default connect(null, { setAlert })(Register); */
 
-export default Register;

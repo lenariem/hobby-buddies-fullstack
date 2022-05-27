@@ -3,14 +3,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/layout/Navbar";
 import { Landing } from "./components/layout/Landing";
 import { Login } from "./components/auth/Login";
-import Register from "./components/auth/Register";
+import { Register } from "./components/auth/Register";
+import { Dashboard } from "./components/dashboard/Dashboard";
 import Alert from "./components/layout/Alert";
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 //Redux
 import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/auth";
-import setAuthToken from './utils/setAuthToken'
+import setAuthToken from "./utils/setAuthToken";
 
 import "./App.css";
 
@@ -19,10 +21,9 @@ if (localStorage.token) {
 }
 
 const App = () => {
-    
     useEffect(() => {
         store.dispatch(loadUser);
-    },[]);
+    }, []);
 
     return (
         <Provider store={store}>
@@ -34,6 +35,10 @@ const App = () => {
                         <Route path="/" element={<Landing />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route
+                            path="/dashboard"
+                            element={<PrivateRoute element={Dashboard} />}
+                        />
                     </Routes>
                 </section>
 
