@@ -10,6 +10,12 @@ export const Navbar = () => {
 
     const authLinks = (
         <ul>
+             <li>
+                <NavLink to="/dashboard">
+                    <i className="fas fa-user" />{" "}
+                    <span className="hide-sm">Dashboard</span>
+                </NavLink>
+            </li>
             <li>
                 <NavLink to="/" onClick={dispatch(logout)}>
                     <i className="fas fa-sign-out-alt" />{" "}
