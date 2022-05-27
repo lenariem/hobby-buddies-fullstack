@@ -7,6 +7,9 @@ export const Navbar = () => {
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
     const loading = useSelector(state => state.auth.loading);
     const dispatch = useDispatch();
+    const handleClick = () => {
+        dispatch(logout())
+      }
 
     const authLinks = (
         <ul>
@@ -17,7 +20,7 @@ export const Navbar = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/" onClick={dispatch(logout)}>
+                <NavLink to="/" onClick={handleClick}>
                     <i className="fas fa-sign-out-alt" />{" "}
                     <span className="hide-sm">Logout</span>
                 </NavLink>
