@@ -4,7 +4,6 @@ import { Link, useMatch, useNavigate } from "react-router-dom";
 import { createProfile,  getCurrentProfile } from "../../actions/profile";
 
 export const CreateProfile = () => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const initialState = {
         company: '',
         website: '',
@@ -29,7 +28,9 @@ export const CreateProfile = () => {
 
     useEffect(() => {
         // if there is no profile, attempt to fetch one
-        if (!profile) getCurrentProfile();
+        if (!profile) {
+            dispatch(getCurrentProfile());
+        }
     
         // if we finished loading and we do have a profile
         // then build our profileData
@@ -47,7 +48,7 @@ export const CreateProfile = () => {
           // set local state with the profileData
           setFormData(profileData);
         }
-      }, [loading, profile, initialState]);
+      }, []);
 
     const {
         company,

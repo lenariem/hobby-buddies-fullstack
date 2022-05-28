@@ -44,6 +44,10 @@ const App = () => {
                             path="/create-profile"
                             element={<PrivateRoute element={CreateProfile} />}
                         />
+                        <Route
+                            path="/edit-profile"
+                            element={<PrivateRoute element={CreateProfile} />}
+                        />
                     </Routes>
                 </section>
 
