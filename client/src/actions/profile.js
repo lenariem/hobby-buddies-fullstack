@@ -7,6 +7,7 @@ import {
     PROFILE_ERROR,
     UPDATE_PROFILE,
     CLEAR_PROFILE,
+    ACCOUNT_DELETED,
 } from "./types";
 
 // Get current users profile
@@ -76,7 +77,12 @@ export const createProfile =
     (formData, navigate, edit = false) =>
     async dispatch => {
         try {
-            const res = await axios.post("/profile", formData);
+            const config = {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            };
+            const res = await axios.post("/api/profile", formData, config);
 
             dispatch({
                 type: GET_PROFILE,

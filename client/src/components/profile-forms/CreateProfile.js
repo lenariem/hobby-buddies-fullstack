@@ -1,23 +1,52 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useMatch, useNavigate } from "react-router-dom";
+import { createProfile,  getCurrentProfile } from "../../actions/profile";
 
 export const CreateProfile = () => {
-    const [formData, setFormData] = useState({
-        company: "",
-        website: "",
-        location: "",
-        status: "",
-        skills: "",
-        bio: "",
-        twitter: "",
-        facebook: "",
-        linkedin: "",
-        youtube: "",
-        instagram: "",
-    });
+    const initialState = {
+        company: '',
+        website: '',
+        location: '',
+        status: '',
+        skills: '',
+        bio: '',
+        twitter: '',
+        facebook: '',
+        linkedin: '',
+        youtube: '',
+        instagram: ''
+      };
 
+    const [formData, setFormData] = useState(initialState);
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
+    const creatingProfile = useMatch("/create-profile");
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const profile = useSelector(state => state.profile.profile);
+    const loading = useSelector(state => state.profile.loading);
+
+    useEffect(() => {
+        // if there is no profile, attempt to fetch one
+        if (!profile) getCurrentProfile();
+    
+        // if we finished loading and we do have a profile
+        // then build our profileData
+        if (!loading && profile) {
+          const profileData = { ...initialState };
+          for (const key in profile) {
+            if (key in profileData) profileData[key] = profile[key];
+          }
+          for (const key in profile.social) {
+            if (key in profileData) profileData[key] = profile.social[key];
+          }
+          // the skills may be an array from our API response
+          if (Array.isArray(profileData.skills))
+            profileData.skills = profileData.skills.join(', ');
+          // set local state with the profileData
+          setFormData(profileData);
+        }
+      }, [loading, profile]);
 
     const {
         company,
@@ -38,7 +67,7 @@ export const CreateProfile = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        createProfile(formData, navigate, profile ? true : false);
+        dispatch(createProfile(formData, navigate, profile ? true : false));
     };
 
     return (
