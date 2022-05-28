@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useMatch, useNavigate } from "react-router-dom";
 import { createProfile,  getCurrentProfile } from "../../actions/profile";
 
-export const CreateProfile = () => {
+export const ProfileForm = () => {
     const initialState = {
         company: '',
         website: '',
@@ -48,7 +48,8 @@ export const CreateProfile = () => {
           // set local state with the profileData
           setFormData(profileData);
         }
-      }, []);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [loading, getCurrentProfile, profile]);
 
     const {
         company,
