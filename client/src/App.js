@@ -36,15 +36,14 @@ const App = () => {
                         <Route path="/" element={<Landing />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
-                        <Route path="/create-profile" element={<CreateProfile />} />
                         <Route
                             path="/dashboard"
                             element={<PrivateRoute element={Dashboard} />}
                         />
-                        {/* <Route
+                        <Route
                             path="/create-profile"
                             element={<PrivateRoute element={CreateProfile} />}
-                        /> */}
+                        />
                     </Routes>
                 </section>
 

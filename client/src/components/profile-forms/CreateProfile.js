@@ -4,6 +4,7 @@ import { Link, useMatch, useNavigate } from "react-router-dom";
 import { createProfile,  getCurrentProfile } from "../../actions/profile";
 
 export const CreateProfile = () => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const initialState = {
         company: '',
         website: '',
@@ -46,7 +47,7 @@ export const CreateProfile = () => {
           // set local state with the profileData
           setFormData(profileData);
         }
-      }, [loading, profile]);
+      }, [loading, profile, initialState]);
 
     const {
         company,

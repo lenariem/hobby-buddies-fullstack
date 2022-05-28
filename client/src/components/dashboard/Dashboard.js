@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
+import DashboardActions from './DashboardActions';
 
 export const Dashboard = () => {
     const loading = useSelector(state => state.profile.loading);
@@ -24,13 +25,13 @@ export const Dashboard = () => {
             </p>
             {profile !== null ? (
                 <>
-                    <div className="my-2">
-                        <button className="btn btn-danger">
-                            <i className="fas fa-user-minus" /> Delete My
-                            Account
-                        </button>
-                    </div>
-                </>
+                <DashboardActions />      
+                <div className="my-2">
+                  <button className="btn btn-danger" >
+                    <i className="fas fa-user-minus" /> Delete My Account
+                  </button>
+                </div>
+              </>
             ) : (
                 <>
                     <p>
