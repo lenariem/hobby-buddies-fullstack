@@ -5,6 +5,7 @@ import { Landing } from "./components/layout/Landing";
 import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { Dashboard } from "./components/dashboard/Dashboard";
+import { CreateProfile } from "./components/profile-forms/CreateProfile";
 import Alert from "./components/layout/Alert";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
@@ -38,6 +39,10 @@ const App = () => {
                         <Route
                             path="/dashboard"
                             element={<PrivateRoute element={Dashboard} />}
+                        />
+                        <Route
+                            path="create-profile"
+                            element={<PrivateRoute element={CreateProfile} />}
                         />
                     </Routes>
                 </section>
