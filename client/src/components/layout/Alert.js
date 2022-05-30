@@ -38,7 +38,7 @@ const Alert = () => {
             </div>
         ));
 
-    return alertMessage;
+    return <div className="alert-wrapper">{alertMessage}</div>;
 };
 
 export default Alert;

@@ -31,7 +31,7 @@ export const Navbar = () => {
     const guestLinks = (
         <ul>
             <li>
-                <NavLink to="!#">Developers</NavLink>
+                <NavLink to="!#">Community</NavLink>
             </li>
             <li>
                 <NavLink to="/register">Register</NavLink>
@@ -41,12 +41,13 @@ export const Navbar = () => {
             </li>
         </ul>
     );
+    /* <FontAwesomeIcon icon="fa-brands fa-connectdevelop" /> */
 
     return (
         <nav className="navbar bg-dark">
             <h1>
                 <NavLink to="/">
-                    <i className="fas fa-code"></i> DevConnector
+                    <i className="fa-brands fa-connectdevelop"></i> Connector
                 </NavLink>
             </h1>
             {!loading && isAuthenticated ? authLinks : guestLinks}

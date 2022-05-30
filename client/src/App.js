@@ -30,7 +30,6 @@ const App = () => {
         <Provider store={store}>
             <BrowserRouter>
                 <Navbar />
-                <section className="container">
                     <Alert />
                     <Routes>
                         <Route path="/" element={<Landing />} />
@@ -49,7 +48,7 @@ const App = () => {
                             element={<PrivateRoute element={ProfileForm} />}
                         />
                     </Routes>
-                </section>
+                
 
                 {/*  <Route path="/about" element={<About />} />
                     <Route path="/category/:name" element={<Category />}/>
