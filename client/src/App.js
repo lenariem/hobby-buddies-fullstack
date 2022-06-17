@@ -6,6 +6,7 @@ import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import { ProfileForm } from "./components/profile-forms/ProfileForm";
+import { AddExperience } from "./components/profile-forms/AddExperience";
 import Alert from "./components/layout/Alert";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
@@ -30,25 +31,28 @@ const App = () => {
         <Provider store={store}>
             <BrowserRouter>
                 <Navbar />
-                    <Alert />
-                    <Routes>
-                        <Route path="/" element={<Landing />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route
-                            path="/dashboard"
-                            element={<PrivateRoute element={Dashboard} />}
-                        />
-                        <Route
-                            path="/create-profile"
-                            element={<PrivateRoute element={ProfileForm} />}
-                        />
-                        <Route
-                            path="/edit-profile"
-                            element={<PrivateRoute element={ProfileForm} />}
-                        />
-                    </Routes>
-                
+                <Alert />
+                <Routes>
+                    <Route path="/" element={<Landing />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route
+                        path="/dashboard"
+                        element={<PrivateRoute element={Dashboard} />}
+                    />
+                    <Route
+                        path="/create-profile"
+                        element={<PrivateRoute element={ProfileForm} />}
+                    />
+                    <Route
+                        path="/edit-profile"
+                        element={<PrivateRoute element={ProfileForm} />}
+                    />
+                    <Route
+                        path="/add-experience"
+                        element={<PrivateRoute element={AddExperience} />}
+                    />
+                </Routes>
 
                 {/*  <Route path="/about" element={<About />} />
                     <Route path="/category/:name" element={<Category />}/>

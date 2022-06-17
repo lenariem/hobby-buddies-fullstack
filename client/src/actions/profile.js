@@ -121,7 +121,7 @@ export const createProfile =
 // Add Experience
 export const addExperience = (formData, navigate) => async dispatch => {
     try {
-        const res = await axios.put("/profile/experience", formData);
+        const res = await axios.put("api/profile/experience", formData);
 
         dispatch({
             type: UPDATE_PROFILE,
