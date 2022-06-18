@@ -4,7 +4,7 @@ import formatDate from "../../utils/formatDate";
 
 export const Experience = () => {
     const dispatch = useDispatch();
-    const experience = useSelector(state => state.profile.experience);
+    const experience = useSelector(state => state.profile.profile.experience);
     const experiences = experience.map(exp => (
         <tr key={exp._id}>
             <td>{exp.company}</td>

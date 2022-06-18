@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
 import DashboardActions from './DashboardActions';
+import { Experience } from "./Experience";
 
 export const Dashboard = () => {
     const loading = useSelector(state => state.profile.loading);
@@ -25,7 +26,8 @@ export const Dashboard = () => {
             </p>
             {profile !== null ? (
                 <>
-                <DashboardActions />      
+                <DashboardActions /> 
+                <Experience />     
                 <div className="my-2">
                   <button className="btn btn-danger" >
                     <i className="fas fa-user-minus" /> Delete My Account
