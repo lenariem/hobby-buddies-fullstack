@@ -5,6 +5,7 @@ import { getCurrentProfile } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
 import DashboardActions from './DashboardActions';
 import { Experience } from "./Experience";
+import { Education } from "./Education";
 
 export const Dashboard = () => {
     const loading = useSelector(state => state.profile.loading);
@@ -27,7 +28,8 @@ export const Dashboard = () => {
             {profile !== null ? (
                 <>
                 <DashboardActions /> 
-                <Experience />     
+                <Experience />  
+                <Education />   
                 <div className="my-2">
                   <button className="btn btn-danger" >
                     <i className="fas fa-user-minus" /> Delete My Account
