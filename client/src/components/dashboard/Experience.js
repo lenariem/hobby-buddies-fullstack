@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import formatDate from "../../utils/formatDate";
 
-const Experience = () => {
+export const Experience = () => {
     const dispatch = useDispatch();
     const experience = useSelector(state => state.profile.experience);
     const experiences = experience.map(exp => (
