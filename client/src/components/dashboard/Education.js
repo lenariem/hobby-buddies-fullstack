@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import formatDate from "../../utils/formatDate";
+import { deleteEducation } from "../../actions/profile";
 
 export const Education = () => {
     const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export const Education = () => {
           </td>
           <td>
             <button
-             /*  onClick={() => deleteEducation(edu._id)} */
+              onClick={() => dispatch(deleteEducation(edu._id))}
               className="btn btn-danger"
             >
               Delete
