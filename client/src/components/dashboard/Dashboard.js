@@ -33,7 +33,7 @@ export const Dashboard = () => {
                     <div className="my-2">
                         <button
                             className="btn btn-danger"
-                            onClick={dispatch(() => deleteAccount())}
+                            onClick={() => dispatch(deleteAccount())}
                         >
                             <i className="fas fa-user-minus" /> Delete My
                             Account
