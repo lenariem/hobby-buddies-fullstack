@@ -14,7 +14,7 @@ export const Dashboard = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCurrentProfile());
+       dispatch(getCurrentProfile());
     }, [dispatch]);
 
     return loading && profile === null ? (
