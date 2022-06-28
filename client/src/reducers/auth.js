@@ -46,8 +46,8 @@ function authReducer(state = initialState, action) {
                 isAuthenticated: false,
                 loading: false,
             };
-        case ACCOUNT_DELETED:
         case LOGOUT:
+        case ACCOUNT_DELETED:
             localStorage.removeItem("token");
             return {
                 ...state,
