@@ -7,7 +7,8 @@ import { ProfileItem } from "./ProfileItem";
 export const Profiles = () => {
     const dispatch = useDispatch();
     const loading = useSelector(state => state.profile.loading);
-    const profiles = useSelector(state => state.profiles);
+    const profiles = useSelector(state => state.profile.profiles);
+   
 
     useEffect(() => {
         dispatch(getProfiles());
@@ -19,10 +20,10 @@ export const Profiles = () => {
                 <Spinner />
             ) : (
                 <>
-                    <h1 className="large text-primary">Developers</h1>
+                    <h1 className="large text-primary">Our Community</h1>
                     <p className="lead">
                         <i className="fab fa-connectdevelop" /> Browse and
-                        connect with developers
+                        connect 
                     </p>
                     <div className="profiles">
                         {profiles.length > 0 ? (
