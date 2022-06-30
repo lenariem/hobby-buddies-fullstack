@@ -8,12 +8,15 @@ export const Navbar = () => {
     const loading = useSelector(state => state.auth.loading);
     const dispatch = useDispatch();
     const handleClick = () => {
-        dispatch(logout())
-      }
+        dispatch(logout());
+    };
 
     const authLinks = (
         <ul>
-             <li>
+            <li>
+                <NavLink to="/profiles">Community</NavLink>
+            </li>
+            <li>
                 <NavLink to="/dashboard">
                     <i className="fas fa-user" />{" "}
                     <span className="hide-sm">Dashboard</span>
@@ -31,7 +34,7 @@ export const Navbar = () => {
     const guestLinks = (
         <ul>
             <li>
-                <NavLink to="!#">Community</NavLink>
+                <NavLink to="/profiles">Community</NavLink>
             </li>
             <li>
                 <NavLink to="/register">Register</NavLink>
