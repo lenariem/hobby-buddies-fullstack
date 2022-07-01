@@ -7,7 +7,7 @@ import { getProfileById } from "../../actions/profile";
 export const Profile = () => {
     const dispatch = useDispatch();
     const profile = useSelector(state => state.profile.profile);
-    const auth = useSelector(state => state.isAuthenticated);
+    const auth = useSelector(state => state.auth);
     const { id } = useParams();
 
     useEffect(() => {
