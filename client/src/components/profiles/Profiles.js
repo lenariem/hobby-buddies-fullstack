@@ -8,7 +8,6 @@ export const Profiles = () => {
     const dispatch = useDispatch();
     const loading = useSelector(state => state.profile.loading);
     const profiles = useSelector(state => state.profile.profiles);
-   
 
     useEffect(() => {
         dispatch(getProfiles());
@@ -23,7 +22,7 @@ export const Profiles = () => {
                     <h1 className="large text-primary">Our Community</h1>
                     <p className="lead">
                         <i className="fab fa-connectdevelop" /> Browse and
-                        connect 
+                        connect
                     </p>
                     <div className="profiles">
                         {profiles.length > 0 ? (
