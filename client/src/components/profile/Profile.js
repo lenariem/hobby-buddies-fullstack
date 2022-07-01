@@ -31,16 +31,12 @@ export const Profile = () => {
                             </Link>
                         )}
                     <div className="profile-grid my-1">
-                       
                         <div className="profile-exp bg-white p-2">
                             <h2 className="text-primary">Experience</h2>
-                           
-                               
                         </div>
 
                         <div className="profile-edu bg-white p-2">
                             <h2 className="text-primary">Education</h2>
-                
                         </div>
                     </div>
                 </>
@@ -48,5 +44,3 @@ export const Profile = () => {
         </section>
     );
 };
-
-
