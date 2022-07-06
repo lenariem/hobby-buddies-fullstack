@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import { getProfileById } from "../../actions/profile";
 import { ProfileTop } from "./ProfileTop";
+import { ProfileAbout } from "./ProfileAbout";
 
 export const Profile = () => {
     const dispatch = useDispatch();
@@ -33,6 +34,7 @@ export const Profile = () => {
                         )}
                     <div className="profile-grid my-1">
                         <ProfileTop profile={profile} />
+                        <ProfileAbout profile={profile} />
                     </div>
                 </>
             )}
