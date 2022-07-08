@@ -10,6 +10,7 @@ import { AddExperience } from "./components/profile-forms/AddExperience";
 import { AddEducation } from "./components/profile-forms/AddEducation";
 import { Profiles } from "./components/profiles/Profiles";
 import { Profile } from "./components/profile/Profile";
+import { Posts } from "./components/posts/Posts";
 import Alert from "./components/layout/Alert";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
@@ -60,6 +61,10 @@ const App = () => {
                     <Route
                         path="/add-education"
                         element={<PrivateRoute element={AddEducation} />}
+                    />
+                    <Route
+                        path="/posts"
+                        element={<PrivateRoute element={Posts} />}
                     />
                 </Routes>
 
