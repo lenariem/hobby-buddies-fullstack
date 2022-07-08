@@ -17,6 +17,9 @@ export const Navbar = () => {
                 <NavLink to="/profiles">Community</NavLink>
             </li>
             <li>
+                <NavLink to="/posts">Posts</NavLink>
+            </li>
+            <li>
                 <NavLink to="/dashboard">
                     <i className="fas fa-user" />{" "}
                     <span className="hide-sm">Dashboard</span>
