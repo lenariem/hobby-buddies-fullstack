@@ -9,9 +9,11 @@ export const Posts = () => {
     const posts = useSelector(state => state.post.posts);
     console.log("posts" + posts)
     const loading = useSelector(state => state.post.loading);
+    
 
     useEffect(() => {
         dispatch(getPosts());
+        console.log("get runned")
     }, [dispatch]);
 
     return (
@@ -23,7 +25,7 @@ export const Posts = () => {
             <form />
             {loading && <Spinner />}
             <div className="posts">
-                {posts.map(post => (
+                {posts && posts.map(post => (
                     <PostItem key={post._id} post={post} />
                 ))}
             </div>
